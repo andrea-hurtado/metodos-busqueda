@@ -1,5 +1,8 @@
+import controllers.MetodosBusqueda;
+
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        MetodosBusqueda mBusqueda = new MetodosBusqueda();
+        mBusqueda.busquedaLineal(5);
     }
 }
