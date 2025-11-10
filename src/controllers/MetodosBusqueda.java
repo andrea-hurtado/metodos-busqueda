@@ -1,5 +1,6 @@
 package controllers;
 
+import models.Persona;
 import views.ShowConsole;
 
 public class MetodosBusqueda {
@@ -14,16 +15,22 @@ public class MetodosBusqueda {
 
         //Busca el 5
         int result1 = busquedaLineal(5);
-        showConsole.printResult(result1, 5);
+        showConsole.printResult(5, result1);
         //Busca el -2
         int result2 = busquedaLinealWhile(-2);
-        showConsole.printResult(result2, -2);
+        showConsole.printResult(-2, result2);
         //Busca el 20
         int result3 = busquedaLinealWhile(20);
-        showConsole.printResult(result3, 20);
-        //Buscar el 100
-        Integer result4 = busquedaLinealObj(100);
+        showConsole.printResult(20, result3);
+        
+        //Buscar el 10   
+        int result4 = busquedaLinealWhile(100);
         showConsole.printResult(result4);
+
+        // Busca el 100 como objeto
+        Integer result5 = busquedaLinealObj(10);
+        showConsole.printResult(result5);
+
     }
 
     // Retorna la posicion del valor buscado
@@ -40,11 +47,10 @@ public class MetodosBusqueda {
         int contador = 0;
         while (contador < arreglo.length) {
             if (arreglo[contador] == numeroBuscar) {
-                return numeroBuscar;
+                return contador;
             }else{
-                numeroBuscar++;
-            }
-            
+                contador++;
+            }  
         }
         return -1;
     }
@@ -52,8 +58,35 @@ public class MetodosBusqueda {
     //Retorna el OBJETO buscado si lo encontró 
     //Si no encontro retorna null;
     public Integer busquedaLinealObj(int numeroBuscar){
+        for (int i = 0; i < arreglo.length; i++) {
+            if (arreglo[i] == numeroBuscar) {
+                return arreglo[i];
+            }
+        }
         return null;
     }
 
+    public Persona searchPersonByName(Persona[] personas, String name){
+        for (Persona persona : personas) {
+            //equals es solo para texto
+            if (persona.getName().equals(name)) {
+                return persona;
+            }
+        }
+        return null;
+    }
+
+    public Persona findPersonByAgeImpar(Persona[] personas, int age){
+            for (Persona persona2 : personas) {
+                if (persona2.getAge() > age) {
+                    if (persona2.getAge() % 2 != 0) {
+                        return persona2;
+                        
+                    } 
+            } 
+                           
+        }
+        return null;        
+    }
 }
 
