@@ -1,5 +1,8 @@
 package controllers;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import models.Persona;
 import views.ShowConsole;
 
@@ -88,5 +91,24 @@ public class MetodosBusqueda {
         }
         return null;        
     }
+    
+    public Persona findPersonByValue(Persona[] personas, int value) {
+        for (Persona persona : personas) {
+            String nombre = persona.getName();
+            int suma = 0;
+
+            for (int i = 0; i < nombre.length(); i++) {
+                char letra = nombre.charAt(i);
+                suma += (int) letra; // Convierte la letra a su valor ASCII
+            }
+            
+            if (suma == value) {
+            return persona;
+            }
+        }
+        return null;
+    }
+
 }
+
 

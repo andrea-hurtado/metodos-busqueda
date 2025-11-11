@@ -34,15 +34,23 @@ public class ShowConsole{
         }
 
     }
-    public void showPersonResult(Persona resuldadoPersona, String name){
-        System.out.println(resuldadoPersona != null
-        ? "Se encontro a " + resuldadoPersona : "No se encontro a una persona con el nombre " + name);
+    public void showPersonResult(Persona resultadoPersona, String name){
+        System.out.println(resultadoPersona != null
+        ? "Se encontro a " + resultadoPersona : "No se encontro a una persona con el nombre " + name);
 
     }
-    public void showPersonResult(Persona resuldadoPersona, int age){
-        System.out.println(resuldadoPersona != null
-        ? "Se encontro a " + resuldadoPersona : "No se encontro a una persona con la edad " + age);
+    public void showPersonResult(Persona resultadoPersona, int age){
+        System.out.println(resultadoPersona != null
+        ? "Se encontro a " + resultadoPersona : "No se encontro a una persona con la edad " + age);
 
     }
     
+    
+    public void showPersonResult(Persona persona, int value, boolean valorNombre) {
+        if (persona != null) {
+            System.out.println("Se encontró una persona con nombre que vale " + value + ": " + persona.getName());
+        } else {
+            System.out.println("No se encontró ninguna persona cuyo nombre valga " + value + ".");
+        }
+    }
 }

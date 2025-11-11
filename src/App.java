@@ -27,5 +27,10 @@ public class App {
         //busqueda de edad impar y mayor a 25
         Persona resultadoPer2 = mBusqueda.findPersonByAgeImpar(personas, 25);
         showConsole.showPersonResult(resultadoPer2, 25);
+
+        //Busqueda por valor de nombre 498
+        Persona resultadoPer3 = mBusqueda.findPersonByValue(personas, 498);
+        boolean valorNombre = true;
+        showConsole.showPersonResult(resultadoPer3, 498, valorNombre);
     }
 }
